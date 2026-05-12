@@ -47,12 +47,13 @@
    2. NAVBAR: SCROLL + ACTIVE LINK
 ══════════════════════════════ */
 (function initNavbar() {
-  const navbar = document.getElementById('navbar');
-  const navLinks = document.querySelectorAll('.nav-link');
-  const sections = document.querySelectorAll('section[id]');
+  const navbar    = document.getElementById('navbar');
+  const navLinks  = document.querySelectorAll('.nav-link');
+  const sections  = document.querySelectorAll('section[id]');
   const hamburger = document.getElementById('hamburger');
-  const navMenu = document.getElementById('navLinks');
-  const navClose = document.getElementById('navClose');
+  const navMenu   = document.getElementById('navLinks');
+  const navClose  = document.getElementById('navClose');
+  const backdrop  = document.getElementById('navBackdrop');
 
   // Sticky glass on scroll
   window.addEventListener('scroll', () => {
@@ -78,6 +79,7 @@
     navMenu.classList.add('open');
     hamburger.classList.add('open');
     hamburger.setAttribute('aria-expanded', 'true');
+    if (backdrop) backdrop.classList.add('open');
     document.body.style.overflow = 'hidden';
   }
 
@@ -85,6 +87,7 @@
     navMenu.classList.remove('open');
     hamburger.classList.remove('open');
     hamburger.setAttribute('aria-expanded', 'false');
+    if (backdrop) backdrop.classList.remove('open');
     document.body.style.overflow = '';
   }
 
@@ -94,7 +97,7 @@
     navMenu.classList.contains('open') ? closeMenu() : openMenu();
   });
 
-  // Close (×) button inside menu
+  // Close (×) button inside panel
   if (navClose) {
     navClose.addEventListener('click', (e) => {
       e.stopPropagation();
@@ -102,17 +105,14 @@
     });
   }
 
+  // Close when clicking backdrop
+  if (backdrop) {
+    backdrop.addEventListener('click', closeMenu);
+  }
+
   // Close on nav link click (mobile)
   navLinks.forEach(link => {
     link.addEventListener('click', closeMenu);
-  });
-
-  // Close when tapping outside the menu panel
-  document.addEventListener('click', (e) => {
-    if (!navMenu.classList.contains('open')) return;
-    if (!navMenu.contains(e.target) && !hamburger.contains(e.target)) {
-      closeMenu();
-    }
   });
 
   // Close on Escape key

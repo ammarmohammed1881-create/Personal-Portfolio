@@ -1,756 +1,735 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="dark">
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ammar — Portfolio</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ammar — Portfolio</title>
 
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700&display=swap"
-    rel="stylesheet" />
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet" />
 
-  <!-- Remix Icons -->
-  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet" />
+    <!-- Remix Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet" />
 
-  <link rel="stylesheet" href="style.css" />
-</head>
+    <link rel="stylesheet" href="style.css" />
+  </head>
 
-<body>
+  <body>
 
-  <!-- ═══════════════════════════════════════
+    <!-- ═══════════════════════════════════════
         CUSTOM CURSOR
     ═══════════════════════════════════════ -->
-  <div class="cursor-dot" id="cursorDot"></div>
-  <div class="cursor-outline" id="cursorOutline"></div>
+    <div class="cursor-dot" id="cursorDot"></div>
+    <div class="cursor-outline" id="cursorOutline"></div>
 
-  <!-- ═══════════════════════════════════════
+    <!-- ═══════════════════════════════════════
         NAVBAR
     ═══════════════════════════════════════ -->
-  <header class="navbar" id="navbar">
-    <div class="nav-container">
-      <!-- Logo -->
-      <a href="#home" class="nav-logo">
-        <img src="photos/logo.png" alt="Ammar Logo" class="logo-img" />
-      </a>
+    <header class="navbar" id="navbar">
+      <div class="nav-container">
+        <!-- Logo -->
+        <a href="#home" class="nav-logo">
+          <img src="photos/logo.png" alt="Ammar Logo" class="logo-img" />
+        </a>
 
-      <!-- Nav Links -->
-      <nav class="nav-links" id="navLinks">
-        <!-- Close button (mobile only) -->
-        <button class="nav-close" id="navClose" aria-label="Close menu">
-          <i class="ri-close-line"></i>
-        </button>
-        <a href="#home" class="nav-link active">Home</a>
-        <a href="#about" class="nav-link">About</a>
-        <a href="#skills" class="nav-link">Skills</a>
-        <a href="#resume" class="nav-link">Resume</a>
-        <a href="#projects" class="nav-link">Projects</a>
-        <a href="#contact" class="nav-link">Contact</a>
-      </nav>
+        <!-- Nav Links -->
+        <nav class="nav-links" id="navLinks">
+          <!-- Panel Header -->
+          <div class="nav-panel-header">
+            <span class="nav-panel-logo">Ammar.</span>
+            <button class="nav-close" id="navClose" aria-label="Close menu">
+              <i class="ri-close-line"></i>
+            </button>
+          </div>
 
-      <!-- Right controls -->
-      <div class="nav-controls">
-        <!-- Theme Toggle -->
-        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
-          <i class="ri-moon-fill" id="themeIcon"></i>
-        </button>
-        <!-- Hamburger -->
-        <button class="hamburger" id="hamburger" aria-label="Toggle menu">
-          <span></span><span></span><span></span>
-        </button>
+          <!-- Links -->
+          <a href="#home" class="nav-link active">
+            <i class="ri-home-4-line"></i> Home
+          </a>
+          <a href="#about" class="nav-link">
+            <i class="ri-user-line"></i> About
+          </a>
+          <a href="#skills" class="nav-link">
+            <i class="ri-code-s-slash-line"></i> Skills
+          </a>
+          <a href="#resume" class="nav-link">
+            <i class="ri-file-list-3-line"></i> Resume
+          </a>
+          <a href="#projects" class="nav-link">
+            <i class="ri-layout-masonry-line"></i> Projects
+          </a>
+          <a href="#contact" class="nav-link">
+            <i class="ri-mail-line"></i> Contact
+          </a>
+
+          <!-- Panel Footer -->
+          <div class="nav-panel-footer">
+            <div class="nav-panel-socials">
+              <a href="https://github.com/ammarmohammed1881-create/" target="_blank" aria-label="GitHub"><i class="ri-github-fill"></i></a>
+              <a href="https://www.linkedin.com/in/mohamed-ammar-284922409" target="_blank" aria-label="LinkedIn"><i class="ri-linkedin-fill"></i></a>
+              <a href="#" aria-label="Twitter"><i class="ri-twitter-x-fill"></i></a>
+              <a href="#" aria-label="Instagram"><i class="ri-instagram-fill"></i></a>
+            </div>
+            <p class="nav-panel-tagline">© 2025 Mohamed Ammar</p>
+          </div>
+        </nav>
+
+        <!-- Backdrop -->
+        <div class="nav-backdrop" id="navBackdrop"></div>
+
+        <!-- Right controls -->
+        <div class="nav-controls">
+          <!-- Theme Toggle -->
+          <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+            <i class="ri-moon-fill" id="themeIcon"></i>
+          </button>
+          <!-- Hamburger -->
+          <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
       </div>
-    </div>
-  </header>
+    </header>
 
-  <!-- ═══════════════════════════════════════
+    <!-- ═══════════════════════════════════════
         HERO SECTION
     ═══════════════════════════════════════ -->
-  <section class="hero-section" id="home">
-    <!-- Animated background (full-width) -->
-    <div class="hero-bg">
-      <div class="glow glow-1"></div>
-      <div class="glow glow-2"></div>
-      <div class="glow glow-3"></div>
-      <div class="grid-overlay"></div>
-    </div>
-
-    <div class="hero">
-
-      <div class="hero-content reveal">
-        <p class="hero-greeting">Hello, World! 👋 I'm</p>
-        <h1 class="hero-name">Ammar</h1>
-        <div class="hero-typed-wrapper">
-          <span class="hero-typed-prefix">I'm a </span>
-          <span class="hero-typed" id="typedText"></span>
-          <span class="cursor-blink">|</span>
-        </div>
-        <p class="hero-desc">
-          Crafting pixel-perfect digital experiences with clean code &amp; bold design.
-          Turning ideas into immersive, high-performance web applications.
-        </p>
-        <div class="hero-cta">
-          <a href="#contact" class="btn btn-primary">
-            <i class="ri-mail-send-line"></i> Hire Me
-          </a>
-          <a href="Resume/CV - MOHAMED AMMAR.pdf" target="_blank" rel="noopener" class="btn btn-outline"
-            id="downloadResume">
-            <i class="ri-download-2-line"></i> View CV
-          </a>
-        </div>
-        <div class="hero-socials">
-          <a href="https://github.com/ammarmohammed1881-create/" target="_blank" aria-label="GitHub"><i
-              class="ri-github-fill"></i></a>
-          <a href="https://www.linkedin.com/in/mohamed-ammar-284922409" aria-label="LinkedIn" target="_blank"><i
-              class="ri-linkedin-fill"></i></a>
-          <a href="#" aria-label="Twitter"><i class="ri-twitter-x-fill"></i></a>
-          <a href="#" aria-label="Instagram"><i class="ri-instagram-line"></i></a>
-        </div>
+    <section class="hero-section" id="home">
+      <!-- Animated background (full-width) -->
+      <div class="hero-bg">
+        <div class="glow glow-1"></div>
+        <div class="glow glow-2"></div>
+        <div class="glow glow-3"></div>
+        <div class="grid-overlay"></div>
       </div>
 
-      <div class="hero-image reveal delay-2">
-        <div class="hero-img-wrapper">
-          <div class="hero-img-glow"></div>
-          <div class="hero-img-ring"></div>
-          <div class="hero-avatar">
-            <img src="photos/profile-pic.jpg" alt="Ammar" class="hero-photo"
-              onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
-            <i class="ri-user-3-fill hero-avatar-icon" style="display:none"></i>
+      <div class="hero">
+
+        <div class="hero-content reveal">
+          <p class="hero-greeting">Hello, World! 👋 I'm</p>
+          <h1 class="hero-name">Ammar</h1>
+          <div class="hero-typed-wrapper">
+            <span class="hero-typed-prefix">I'm a </span>
+            <span class="hero-typed" id="typedText"></span>
+            <span class="cursor-blink">|</span>
+          </div>
+          <p class="hero-desc">
+            Crafting pixel-perfect digital experiences with clean code &amp; bold design.
+            Turning ideas into immersive, high-performance web applications.
+          </p>
+          <div class="hero-cta">
+            <a href="#contact" class="btn btn-primary">
+              <i class="ri-mail-send-line"></i> Hire Me
+            </a>
+            <a href="Resume/CV - MOHAMED AMMAR.pdf" target="_blank" rel="noopener" class="btn btn-outline" id="downloadResume">
+              <i class="ri-download-2-line"></i> View CV
+            </a>
+          </div>
+          <div class="hero-socials">
+            <a href="https://github.com/ammarmohammed1881-create/" target="_blank" aria-label="GitHub"><i class="ri-github-fill"></i></a>
+            <a href="https://www.linkedin.com/in/mohamed-ammar-284922409" aria-label="LinkedIn" target="_blank"><i class="ri-linkedin-fill"></i></a>
+            <a href="#" aria-label="Twitter"><i class="ri-twitter-x-fill"></i></a>
+            <a href="#" aria-label="Instagram"><i class="ri-instagram-fill"></i></a>
           </div>
         </div>
-      </div>
 
-      <!-- Scroll indicator -->
-      <a href="#about" class="scroll-indicator">
-        <span>Scroll</span>
-        <i class="ri-arrow-down-line"></i>
-      </a>
-    </div><!-- end .hero -->
-  </section><!-- end .hero-section -->
+        <div class="hero-image reveal delay-2">
+          <div class="hero-img-wrapper">
+            <div class="hero-img-glow"></div>
+            <div class="hero-img-ring"></div>
+            <div class="hero-avatar">
+              <img src="photos/profile-pic.jpg" alt="Ammar" class="hero-photo"
+                onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
+              <i class="ri-user-3-fill hero-avatar-icon" style="display:none"></i>
+            </div>
+          </div>
+        </div>
 
-  <!-- ═══════════════════════════════════════
+        <!-- Scroll indicator -->
+        <a href="#about" class="scroll-indicator">
+          <span>Scroll</span>
+          <i class="ri-arrow-down-line"></i>
+        </a>
+      </div><!-- end .hero -->
+    </section><!-- end .hero-section -->
+
+    <!-- ═══════════════════════════════════════
         ABOUT SECTION  ← UPDATED with CV data
     ═══════════════════════════════════════ -->
-  <section class="about section" id="about">
-    <div class="container">
-      <div class="section-header reveal">
-        <span class="section-tag">Who I Am</span>
-        <h2 class="section-title">About <span class="accent">Me</span></h2>
-        <div class="section-line"></div>
-      </div>
-
-      <div class="about-grid">
-        <div class="about-image-col reveal">
-          <div class="about-img-card glass">
-            <div class="about-avatar-big">
-              <img src="photos/profile-pic.jpg" alt="Ammar" class="about-photo"
-                onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
-              <i class="ri-user-3-fill about-avatar-icon" style="display:none"></i>
-            </div>
-            <div class="about-badge">
-              <i class="ri-checkbox-circle-fill"></i> Available for work
-            </div>
-          </div>
+    <section class="about section" id="about">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-tag">Who I Am</span>
+          <h2 class="section-title">About <span class="accent">Me</span></h2>
+          <div class="section-line"></div>
         </div>
 
-        <div class="about-text-col reveal delay-1">
-          <h3 class="about-subtitle">Software Engineering Student &amp; Full-Stack Developer</h3>
-          <p class="about-bio">
-            I'm a motivated Software Engineering student currently pursuing a Pearson BTEC Level 5 Higher National
-            Diploma in Computing (RQF) at ESOFT Metro Campus. I have developed a strong foundation in full-stack
-            web development, software design, object-oriented programming, databases, and modern web technologies
-            through academic and practical projects.
-          </p>
-          <p class="about-bio">
-            I'm passionate about building real-world software solutions and am seeking an internship or entry-level
-            role to apply my skills, gain industry experience, and grow as a professional software developer.
-          </p>
-
-          <div class="about-details">
-            <div class="detail-item">
-              <i class="ri-map-pin-line"></i>
-              <span>Atulugama, Bandaragama, Sri Lanka</span>
-            </div>
-            <div class="detail-item">
-              <i class="ri-mail-line"></i>
-              <span>ammarmohammed1881@gmail.com</span>
-            </div>
-            <div class="detail-item">
-              <i class="ri-phone-line"></i>
-              <span>+94 77 446 4661</span>
-            </div>
-            <div class="detail-item">
-              <i class="ri-graduation-cap-line"></i>
-              <span>Pearson BTEC Level 5 HND — Esoft</span>
-            </div>
-          </div>
-
-          <!-- Language proficiency -->
-          <div class="about-languages">
-            <h4 class="about-lang-title">Languages</h4>
-            <div class="lang-list">
-              <div class="lang-item">
-                <span class="lang-name">Tamil</span>
-                <div class="lang-bar">
-                  <div class="lang-fill" style="width:100%"></div>
-                </div>
-                <span class="lang-pct">Native</span>
+        <div class="about-grid">
+          <div class="about-image-col reveal">
+            <div class="about-img-card glass">
+              <div class="about-avatar-big">
+                <img src="photos/profile-pic.jpg" alt="Ammar" class="about-photo"
+                  onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
+                <i class="ri-user-3-fill about-avatar-icon" style="display:none"></i>
               </div>
-              <div class="lang-item">
-                <span class="lang-name">English</span>
-                <div class="lang-bar">
-                  <div class="lang-fill" style="width:80%"></div>
-                </div>
-                <span class="lang-pct">80%</span>
-              </div>
-              <div class="lang-item">
-                <span class="lang-name">Sinhala</span>
-                <div class="lang-bar">
-                  <div class="lang-fill" style="width:60%"></div>
-                </div>
-                <span class="lang-pct">60%</span>
+              <div class="about-badge">
+                <i class="ri-checkbox-circle-fill"></i> Available for work
               </div>
             </div>
           </div>
 
-          <!-- Counters -->
-          <div class="about-counters">
-            <div class="counter-item">
-              <span class="counter-number" data-target="3">0</span>
-              <span class="counter-plus">+</span>
-              <span class="counter-label">Projects</span>
+          <div class="about-text-col reveal delay-1">
+            <h3 class="about-subtitle">Software Engineering Student &amp; Full-Stack Developer</h3>
+            <p class="about-bio">
+              I'm a motivated Software Engineering student currently pursuing a Pearson BTEC Level 5 Higher National
+              Diploma in Computing (RQF) at ESOFT Metro Campus. I have developed a strong foundation in full-stack
+              web development, software design, object-oriented programming, databases, and modern web technologies
+              through academic and practical projects.
+            </p>
+            <p class="about-bio">
+              I'm passionate about building real-world software solutions and am seeking an internship or entry-level
+              role to apply my skills, gain industry experience, and grow as a professional software developer.
+            </p>
+
+            <div class="about-details">
+              <div class="detail-item">
+                <i class="ri-map-pin-line"></i>
+                <span>Atulugama, Bandaragama, Sri Lanka</span>
+              </div>
+              <div class="detail-item">
+                <i class="ri-mail-line"></i>
+                <span>ammarmohammed1881@gmail.com</span>
+              </div>
+              <div class="detail-item">
+                <i class="ri-phone-line"></i>
+                <span>+94 77 446 4661</span>
+              </div>
+              <div class="detail-item">
+                <i class="ri-graduation-cap-line"></i>
+                <span>Pearson BTEC Level 5 HND — Esoft</span>
+              </div>
             </div>
-            <div class="counter-item">
-              <span class="counter-number" data-target="3">0</span>
-              <span class="counter-plus">+</span>
-              <span class="counter-label">Certificates</span>
+
+            <!-- Language proficiency -->
+            <div class="about-languages">
+              <h4 class="about-lang-title">Languages</h4>
+              <div class="lang-list">
+                <div class="lang-item">
+                  <span class="lang-name">Tamil</span>
+                  <div class="lang-bar"><div class="lang-fill" style="width:100%"></div></div>
+                  <span class="lang-pct">Native</span>
+                </div>
+                <div class="lang-item">
+                  <span class="lang-name">English</span>
+                  <div class="lang-bar"><div class="lang-fill" style="width:80%"></div></div>
+                  <span class="lang-pct">80%</span>
+                </div>
+                <div class="lang-item">
+                  <span class="lang-name">Sinhala</span>
+                  <div class="lang-bar"><div class="lang-fill" style="width:60%"></div></div>
+                  <span class="lang-pct">60%</span>
+                </div>
+              </div>
             </div>
-            <div class="counter-item">
-              <span class="counter-number" data-target="3">0</span>
-              <span class="counter-plus"></span>
-              <span class="counter-label">Languages</span>
-            </div>
-            <div class="counter-item">
-              <span class="counter-number" data-target="2025">0</span>
-              <span class="counter-plus"></span>
-              <span class="counter-label">Enrolled</span>
+
+            <!-- Counters -->
+            <div class="about-counters">
+              <div class="counter-item">
+                <span class="counter-number" data-target="3">0</span>
+                <span class="counter-plus">+</span>
+                <span class="counter-label">Projects</span>
+              </div>
+              <div class="counter-item">
+                <span class="counter-number" data-target="3">0</span>
+                <span class="counter-plus">+</span>
+                <span class="counter-label">Certificates</span>
+              </div>
+              <div class="counter-item">
+                <span class="counter-number" data-target="3">0</span>
+                <span class="counter-plus"></span>
+                <span class="counter-label">Languages</span>
+              </div>
+              <div class="counter-item">
+                <span class="counter-number" data-target="2025">0</span>
+                <span class="counter-plus"></span>
+                <span class="counter-label">Enrolled</span>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ═══════════════════════════════════════
+    <!-- ═══════════════════════════════════════
         SKILLS SECTION  ← UPDATED with CV data
     ═══════════════════════════════════════ -->
-  <section class="skills section" id="skills">
-    <div class="container">
-      <div class="section-header reveal">
-        <span class="section-tag">What I Know</span>
-        <h2 class="section-title">My <span class="accent">Skills</span></h2>
-        <div class="section-line"></div>
+    <section class="skills section" id="skills">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-tag">What I Know</span>
+          <h2 class="section-title">My <span class="accent">Skills</span></h2>
+          <div class="section-line"></div>
+        </div>
+
+        <!-- Skill category tabs -->
+        <div class="skills-tabs reveal">
+          <button class="skill-tab active" data-cat="all">All</button>
+          <button class="skill-tab" data-cat="frontend">Frontend</button>
+          <button class="skill-tab" data-cat="backend">Backend &amp; DB</button>
+          <button class="skill-tab" data-cat="languages">Languages</button>
+          <button class="skill-tab" data-cat="tools">Tools</button>
+        </div>
+
+        <div class="skills-grid">
+
+          <!-- FRONTEND -->
+          <div class="skill-card glass reveal" data-cat="frontend">
+            <div class="skill-icon" style="--clr:#e34c26"><i class="ri-html5-fill"></i></div>
+            <h4>HTML5</h4>
+            <div class="skill-bar"><div class="skill-fill" data-width="90"></div></div>
+            <span class="skill-pct">90%</span>
+          </div>
+
+          <div class="skill-card glass reveal delay-1" data-cat="frontend">
+            <div class="skill-icon" style="--clr:#264de4"><i class="ri-css3-fill"></i></div>
+            <h4>CSS3</h4>
+            <div class="skill-bar"><div class="skill-fill" data-width="85"></div></div>
+            <span class="skill-pct">85%</span>
+          </div>
+
+          <div class="skill-card glass reveal delay-2" data-cat="frontend">
+            <div class="skill-icon" style="--clr:#38bdf8"><i class="ri-reactjs-line"></i></div>
+            <h4>React</h4>
+            <div class="skill-bar"><div class="skill-fill" data-width="75"></div></div>
+            <span class="skill-pct">75%</span>
+          </div>
+
+          <div class="skill-card glass reveal delay-3" data-cat="frontend">
+            <div class="skill-icon" style="--clr:#7952b3"><i class="ri-layout-grid-fill"></i></div>
+            <h4>Bootstrap</h4>
+            <div class="skill-bar"><div class="skill-fill" data-width="80"></div></div>
+            <span class="skill-pct">80%</span>
+          </div>
+
+          <!-- LANGUAGES -->
+          <div class="skill-card glass reveal" data-cat="languages">
+            <div class="skill-icon" style="--clr:#fbbf24"><i class="ri-javascript-fill"></i></div>
+            <h4>JavaScript</h4>
+            <div class="skill-bar"><div class="skill-fill" data-width="82"></div></div>
+            <span class="skill-pct">82%</span>
+          </div>
+
+          <div class="skill-card glass reveal delay-1" data-cat="languages">
+            <div class="skill-icon" style="--clr:#f89820"><i class="ri-code-s-slash-line"></i></div>
+            <h4>Java</h4>
+            <div class="skill-bar"><div class="skill-fill" data-width="75"></div></div>
+            <span class="skill-pct">75%</span>
+          </div>
+
+          <div class="skill-card glass reveal delay-2" data-cat="languages">
+            <div class="skill-icon" style="--clr:#4ade80"><i class="ri-terminal-box-line"></i></div>
+            <h4>Python</h4>
+            <div class="skill-bar"><div class="skill-fill" data-width="70"></div></div>
+            <span class="skill-pct">70%</span>
+          </div>
+
+          <div class="skill-card glass reveal delay-3" data-cat="languages">
+            <div class="skill-icon" style="--clr:#9b59b6"><i class="ri-code-box-line"></i></div>
+            <h4>C#</h4>
+            <div class="skill-bar"><div class="skill-fill" data-width="72"></div></div>
+            <span class="skill-pct">72%</span>
+          </div>
+
+          <!-- BACKEND & DB -->
+          <div class="skill-card glass reveal" data-cat="backend">
+            <div class="skill-icon" style="--clr:#4ade80"><i class="ri-node-tree"></i></div>
+            <h4>Node.js</h4>
+            <div class="skill-bar"><div class="skill-fill" data-width="70"></div></div>
+            <span class="skill-pct">70%</span>
+          </div>
+
+          <div class="skill-card glass reveal delay-1" data-cat="backend">
+            <div class="skill-icon" style="--clr:#8993be"><i class="ri-file-code-line"></i></div>
+            <h4>PHP</h4>
+            <div class="skill-bar"><div class="skill-fill" data-width="68"></div></div>
+            <span class="skill-pct">68%</span>
+          </div>
+
+          <div class="skill-card glass reveal delay-2" data-cat="backend">
+            <div class="skill-icon" style="--clr:#00758f"><i class="ri-database-2-line"></i></div>
+            <h4>MySQL</h4>
+            <div class="skill-bar"><div class="skill-fill" data-width="78"></div></div>
+            <span class="skill-pct">78%</span>
+          </div>
+
+          <div class="skill-card glass reveal delay-3" data-cat="backend">
+            <div class="skill-icon" style="--clr:#4db33d"><i class="ri-database-line"></i></div>
+            <h4>MongoDB</h4>
+            <div class="skill-bar"><div class="skill-fill" data-width="65"></div></div>
+            <span class="skill-pct">65%</span>
+          </div>
+
+          <!-- TOOLS -->
+          <div class="skill-card glass reveal" data-cat="tools">
+            <div class="skill-icon" style="--clr:#fb923c"><i class="ri-git-branch-line"></i></div>
+            <h4>Git / GitHub</h4>
+            <div class="skill-bar"><div class="skill-fill" data-width="80"></div></div>
+            <span class="skill-pct">80%</span>
+          </div>
+
+          <div class="skill-card glass reveal delay-1" data-cat="tools">
+            <div class="skill-icon" style="--clr:#f472b6"><i class="ri-pencil-ruler-2-line"></i></div>
+            <h4>Figma</h4>
+            <div class="skill-bar"><div class="skill-fill" data-width="72"></div></div>
+            <span class="skill-pct">72%</span>
+          </div>
+
+          <div class="skill-card glass reveal delay-2" data-cat="tools">
+            <div class="skill-icon" style="--clr:#007acc"><i class="ri-code-s-line"></i></div>
+            <h4>VS Code</h4>
+            <div class="skill-bar"><div class="skill-fill" data-width="90"></div></div>
+            <span class="skill-pct">90%</span>
+          </div>
+
+          <div class="skill-card glass reveal delay-3" data-cat="tools">
+            <div class="skill-icon" style="--clr:#a78bfa"><i class="ri-search-eye-line"></i></div>
+            <h4>SQL</h4>
+            <div class="skill-bar"><div class="skill-fill" data-width="76"></div></div>
+            <span class="skill-pct">76%</span>
+          </div>
+
+        </div>
       </div>
+    </section>
 
-      <!-- Skill category tabs -->
-      <div class="skills-tabs reveal">
-        <button class="skill-tab active" data-cat="all">All</button>
-        <button class="skill-tab" data-cat="frontend">Frontend</button>
-        <button class="skill-tab" data-cat="backend">Backend &amp; DB</button>
-        <button class="skill-tab" data-cat="languages">Languages</button>
-        <button class="skill-tab" data-cat="tools">Tools</button>
-      </div>
-
-      <div class="skills-grid">
-
-        <!-- FRONTEND -->
-        <div class="skill-card glass reveal" data-cat="frontend">
-          <div class="skill-icon" style="--clr:#e34c26"><i class="ri-html5-fill"></i></div>
-          <h4>HTML5</h4>
-          <div class="skill-bar">
-            <div class="skill-fill" data-width="90"></div>
-          </div>
-          <span class="skill-pct">90%</span>
-        </div>
-
-        <div class="skill-card glass reveal delay-1" data-cat="frontend">
-          <div class="skill-icon" style="--clr:#264de4"><i class="ri-css3-fill"></i></div>
-          <h4>CSS3</h4>
-          <div class="skill-bar">
-            <div class="skill-fill" data-width="85"></div>
-          </div>
-          <span class="skill-pct">85%</span>
-        </div>
-
-        <div class="skill-card glass reveal delay-2" data-cat="frontend">
-          <div class="skill-icon" style="--clr:#38bdf8"><i class="ri-reactjs-line"></i></div>
-          <h4>React</h4>
-          <div class="skill-bar">
-            <div class="skill-fill" data-width="75"></div>
-          </div>
-          <span class="skill-pct">75%</span>
-        </div>
-
-        <div class="skill-card glass reveal delay-3" data-cat="frontend">
-          <div class="skill-icon" style="--clr:#7952b3"><i class="ri-layout-grid-fill"></i></div>
-          <h4>Bootstrap</h4>
-          <div class="skill-bar">
-            <div class="skill-fill" data-width="80"></div>
-          </div>
-          <span class="skill-pct">80%</span>
-        </div>
-
-        <!-- LANGUAGES -->
-        <div class="skill-card glass reveal" data-cat="languages">
-          <div class="skill-icon" style="--clr:#fbbf24"><i class="ri-javascript-fill"></i></div>
-          <h4>JavaScript</h4>
-          <div class="skill-bar">
-            <div class="skill-fill" data-width="82"></div>
-          </div>
-          <span class="skill-pct">82%</span>
-        </div>
-
-        <div class="skill-card glass reveal delay-1" data-cat="languages">
-          <div class="skill-icon" style="--clr:#f89820"><i class="ri-code-s-slash-line"></i></div>
-          <h4>Java</h4>
-          <div class="skill-bar">
-            <div class="skill-fill" data-width="75"></div>
-          </div>
-          <span class="skill-pct">75%</span>
-        </div>
-
-        <div class="skill-card glass reveal delay-2" data-cat="languages">
-          <div class="skill-icon" style="--clr:#4ade80"><i class="ri-terminal-box-line"></i></div>
-          <h4>Python</h4>
-          <div class="skill-bar">
-            <div class="skill-fill" data-width="70"></div>
-          </div>
-          <span class="skill-pct">70%</span>
-        </div>
-
-        <div class="skill-card glass reveal delay-3" data-cat="languages">
-          <div class="skill-icon" style="--clr:#9b59b6"><i class="ri-code-box-line"></i></div>
-          <h4>C#</h4>
-          <div class="skill-bar">
-            <div class="skill-fill" data-width="72"></div>
-          </div>
-          <span class="skill-pct">72%</span>
-        </div>
-
-        <!-- BACKEND & DB -->
-        <div class="skill-card glass reveal" data-cat="backend">
-          <div class="skill-icon" style="--clr:#4ade80"><i class="ri-node-tree"></i></div>
-          <h4>Node.js</h4>
-          <div class="skill-bar">
-            <div class="skill-fill" data-width="70"></div>
-          </div>
-          <span class="skill-pct">70%</span>
-        </div>
-
-        <div class="skill-card glass reveal delay-1" data-cat="backend">
-          <div class="skill-icon" style="--clr:#8993be"><i class="ri-file-code-line"></i></div>
-          <h4>PHP</h4>
-          <div class="skill-bar">
-            <div class="skill-fill" data-width="68"></div>
-          </div>
-          <span class="skill-pct">68%</span>
-        </div>
-
-        <div class="skill-card glass reveal delay-2" data-cat="backend">
-          <div class="skill-icon" style="--clr:#00758f"><i class="ri-database-2-line"></i></div>
-          <h4>MySQL</h4>
-          <div class="skill-bar">
-            <div class="skill-fill" data-width="78"></div>
-          </div>
-          <span class="skill-pct">78%</span>
-        </div>
-
-        <div class="skill-card glass reveal delay-3" data-cat="backend">
-          <div class="skill-icon" style="--clr:#4db33d"><i class="ri-database-line"></i></div>
-          <h4>MongoDB</h4>
-          <div class="skill-bar">
-            <div class="skill-fill" data-width="65"></div>
-          </div>
-          <span class="skill-pct">65%</span>
-        </div>
-
-        <!-- TOOLS -->
-        <div class="skill-card glass reveal" data-cat="tools">
-          <div class="skill-icon" style="--clr:#fb923c"><i class="ri-git-branch-line"></i></div>
-          <h4>Git / GitHub</h4>
-          <div class="skill-bar">
-            <div class="skill-fill" data-width="80"></div>
-          </div>
-          <span class="skill-pct">80%</span>
-        </div>
-
-        <div class="skill-card glass reveal delay-1" data-cat="tools">
-          <div class="skill-icon" style="--clr:#f472b6"><i class="ri-pencil-ruler-2-line"></i></div>
-          <h4>Figma</h4>
-          <div class="skill-bar">
-            <div class="skill-fill" data-width="72"></div>
-          </div>
-          <span class="skill-pct">72%</span>
-        </div>
-
-        <div class="skill-card glass reveal delay-2" data-cat="tools">
-          <div class="skill-icon" style="--clr:#007acc"><i class="ri-code-s-line"></i></div>
-          <h4>VS Code</h4>
-          <div class="skill-bar">
-            <div class="skill-fill" data-width="90"></div>
-          </div>
-          <span class="skill-pct">90%</span>
-        </div>
-
-        <div class="skill-card glass reveal delay-3" data-cat="tools">
-          <div class="skill-icon" style="--clr:#a78bfa"><i class="ri-search-eye-line"></i></div>
-          <h4>SQL</h4>
-          <div class="skill-bar">
-            <div class="skill-fill" data-width="76"></div>
-          </div>
-          <span class="skill-pct">76%</span>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══════════════════════════════════════
+    <!-- ═══════════════════════════════════════
         RESUME SECTION  ← UPDATED with CV data
     ═══════════════════════════════════════ -->
-  <section class="resume section" id="resume">
-    <div class="container">
-      <div class="section-header reveal">
-        <span class="section-tag">My Journey</span>
-        <h2 class="section-title">Resume &amp; <span class="accent">Education</span></h2>
-        <div class="section-line"></div>
-      </div>
+    <section class="resume section" id="resume">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-tag">My Journey</span>
+          <h2 class="section-title">Resume &amp; <span class="accent">Education</span></h2>
+          <div class="section-line"></div>
+        </div>
 
-      <div class="resume-grid">
-        <!-- Education -->
-        <div class="timeline-col reveal">
-          <h3 class="timeline-heading"><i class="ri-graduation-cap-line"></i> Education</h3>
-          <div class="timeline">
+        <div class="resume-grid">
+          <!-- Education -->
+          <div class="timeline-col reveal">
+            <h3 class="timeline-heading"><i class="ri-graduation-cap-line"></i> Education</h3>
+            <div class="timeline">
 
-            <div class="timeline-item">
-              <div class="timeline-dot"></div>
-              <div class="timeline-card glass">
-                <span class="timeline-date">2027 – 2028 · Planned</span>
-                <h4>BSc (Hons) Computing Science — Software Engineering (Top-Up)</h4>
-                <p>Esoft Metro Campus</p>
-                <span class="timeline-tag">Planned</span>
+              <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-card glass">
+                  <span class="timeline-date">2027 – 2028 · Planned</span>
+                  <h4>BSc (Hons) Computing Science — Software Engineering (Top-Up)</h4>
+                  <p>Esoft Metro Campus</p>
+                  <span class="timeline-tag">Planned</span>
+                </div>
               </div>
-            </div>
 
-            <div class="timeline-item">
-              <div class="timeline-dot"></div>
-              <div class="timeline-card glass">
-                <span class="timeline-date">2025 – Present · In Progress</span>
-                <h4>Pearson BTEC Level 5 HND in Computing (RQF)</h4>
-                <p>Esoft Metro Campus</p>
-                <span class="timeline-tag">In Progress</span>
+              <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-card glass">
+                  <span class="timeline-date">2025 – Present · In Progress</span>
+                  <h4>Pearson BTEC Level 5 HND in Computing (RQF)</h4>
+                  <p>Esoft Metro Campus</p>
+                  <span class="timeline-tag">In Progress</span>
+                </div>
               </div>
-            </div>
 
-            <div class="timeline-item">
-              <div class="timeline-dot"></div>
-              <div class="timeline-card glass">
-                <span class="timeline-date">2023 – 2024 · Completed</span>
-                <h4>G.C.E. Advanced Level</h4>
-                <p>Al-Gazzaly Central College</p>
-                <span class="timeline-tag">Information Technology — B &nbsp;|&nbsp; Business Studies &amp; Accounting —
-                  C</span>
+              <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-card glass">
+                  <span class="timeline-date">2023 – 2024 · Completed</span>
+                  <h4>G.C.E. Advanced Level</h4>
+                  <p>Al-Gazzaly Central College</p>
+                  <span class="timeline-tag">Information Technology — B &nbsp;|&nbsp; Business Studies &amp; Accounting — C</span>
+                </div>
               </div>
-            </div>
 
+            </div>
+          </div>
+
+          <!-- Certificates -->
+          <div class="timeline-col reveal delay-2">
+            <h3 class="timeline-heading"><i class="ri-award-line"></i> Certificates</h3>
+            <div class="timeline">
+
+              <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-card glass">
+                  <span class="timeline-date">2023 (March – June)</span>
+                  <h4>Web Designing</h4>
+                  <p>Certificate Programme</p>
+                  <span class="timeline-tag">Merit</span>
+                </div>
+              </div>
+
+              <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-card glass">
+                  <span class="timeline-date">2022 (August – November)</span>
+                  <h4>Diploma in PC Application</h4>
+                  <p>Certificate Programme</p>
+                  <span class="timeline-tag">Merit</span>
+                </div>
+              </div>
+
+              <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-card glass">
+                  <span class="timeline-date">2022 (July – December)</span>
+                  <h4>Diploma in English</h4>
+                  <p>Language Programme</p>
+                  <span class="timeline-tag">Pass</span>
+                </div>
+              </div>
+
+            </div>
           </div>
         </div>
 
-        <!-- Certificates -->
-        <div class="timeline-col reveal delay-2">
-          <h3 class="timeline-heading"><i class="ri-award-line"></i> Certificates</h3>
-          <div class="timeline">
-
-            <div class="timeline-item">
-              <div class="timeline-dot"></div>
-              <div class="timeline-card glass">
-                <span class="timeline-date">2023 (March – June)</span>
-                <h4>Web Designing</h4>
-                <p>Certificate Programme</p>
-                <span class="timeline-tag">Merit</span>
-              </div>
-            </div>
-
-            <div class="timeline-item">
-              <div class="timeline-dot"></div>
-              <div class="timeline-card glass">
-                <span class="timeline-date">2022 (August – November)</span>
-                <h4>Diploma in PC Application</h4>
-                <p>Certificate Programme</p>
-                <span class="timeline-tag">Merit</span>
-              </div>
-            </div>
-
-            <div class="timeline-item">
-              <div class="timeline-dot"></div>
-              <div class="timeline-card glass">
-                <span class="timeline-date">2022 (July – December)</span>
-                <h4>Diploma in English</h4>
-                <p>Language Programme</p>
-                <span class="timeline-tag">Pass</span>
-              </div>
-            </div>
-
+        <!-- Soft Skills strip -->
+        <div class="soft-skills-strip reveal">
+          <h3 class="soft-skills-heading">Soft Skills</h3>
+          <div class="soft-skills-list">
+            <span class="soft-skill-chip"><i class="ri-brain-line"></i> Analytical &amp; Logical Thinking</span>
+            <span class="soft-skill-chip"><i class="ri-team-line"></i> Team Collaboration</span>
+            <span class="soft-skill-chip"><i class="ri-chat-smile-2-line"></i> Effective Communication</span>
+            <span class="soft-skill-chip"><i class="ri-user-star-line"></i> Self-Motivated Learner</span>
+            <span class="soft-skill-chip"><i class="ri-focus-3-line"></i> Attention to Detail</span>
+            <span class="soft-skill-chip"><i class="ri-time-line"></i> Deadline-Driven &amp; Organised</span>
+            <span class="soft-skill-chip"><i class="ri-flashlight-line"></i> Fast Learner</span>
           </div>
         </div>
-      </div>
 
-      <!-- Soft Skills strip -->
-      <div class="soft-skills-strip reveal">
-        <h3 class="soft-skills-heading">Soft Skills</h3>
-        <div class="soft-skills-list">
-          <span class="soft-skill-chip"><i class="ri-brain-line"></i> Analytical &amp; Logical Thinking</span>
-          <span class="soft-skill-chip"><i class="ri-team-line"></i> Team Collaboration</span>
-          <span class="soft-skill-chip"><i class="ri-chat-smile-2-line"></i> Effective Communication</span>
-          <span class="soft-skill-chip"><i class="ri-user-star-line"></i> Self-Motivated Learner</span>
-          <span class="soft-skill-chip"><i class="ri-focus-3-line"></i> Attention to Detail</span>
-          <span class="soft-skill-chip"><i class="ri-time-line"></i> Deadline-Driven &amp; Organised</span>
-          <span class="soft-skill-chip"><i class="ri-flashlight-line"></i> Fast Learner</span>
+        <!-- Download CV -->
+        <div class="resume-cta reveal">
+          <a href="Resume/CV - MOHAMED AMMAR.pdf" target="_blank" rel="noopener" class="btn btn-primary btn-large">
+            <i class="ri-download-2-line"></i> View Full CV
+          </a>
         </div>
       </div>
+    </section>
 
-      <!-- Download CV -->
-      <div class="resume-cta reveal">
-        <a href="Resume/CV - MOHAMED AMMAR.pdf" target="_blank" rel="noopener" class="btn btn-primary btn-large">
-          <i class="ri-download-2-line"></i> View Full CV
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══════════════════════════════════════
+    <!-- ═══════════════════════════════════════
         PROJECTS SECTION  ← UPDATED with CV data
     ═══════════════════════════════════════ -->
-  <section class="projects section" id="projects">
-    <div class="container">
-      <div class="section-header reveal">
-        <span class="section-tag">What I've Built</span>
-        <h2 class="section-title">Featured <span class="accent">Projects</span></h2>
-        <div class="section-line"></div>
+    <section class="projects section" id="projects">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-tag">What I've Built</span>
+          <h2 class="section-title">Featured <span class="accent">Projects</span></h2>
+          <div class="section-line"></div>
+        </div>
+
+        <div class="projects-grid">
+
+          <!-- Project 1: Delivery Management System -->
+          <article class="project-card glass reveal">
+            <div class="project-img">
+              <div class="project-img-placeholder" style="--clr1:#4ade80;--clr2:#22c55e">
+                <i class="ri-truck-line"></i>
+              </div>
+              <div class="project-overlay">
+                <a href="#" class="btn btn-sm btn-primary"><i class="ri-external-link-line"></i> Live Demo</a>
+                <a href="https://github.com/ammarmohammed1881-create/" target="_blank" class="btn btn-sm btn-outline"><i class="ri-github-fill"></i> GitHub</a>
+              </div>
+            </div>
+            <div class="project-body">
+              <div class="project-tags">
+                <span>C#</span><span>MySQL</span><span>OOP</span>
+              </div>
+              <h4 class="project-title">Delivery Management System</h4>
+              <p class="project-desc">A desktop application built with C# and MySQL to manage deliveries end-to-end — tracking orders, drivers, and status updates with a clean, data-driven interface.</p>
+            </div>
+          </article>
+
+          <!-- Project 2: E-Commerce Website -->
+          <article class="project-card glass reveal delay-1">
+            <div class="project-img">
+              <div class="project-img-placeholder" style="--clr1:#60a5fa;--clr2:#3b82f6">
+                <i class="ri-shopping-bag-3-line"></i>
+              </div>
+              <div class="project-overlay">
+                <a href="#" class="btn btn-sm btn-primary"><i class="ri-external-link-line"></i> Live Demo</a>
+                <a href="https://github.com/ammarmohammed1881-create/" target="_blank" class="btn btn-sm btn-outline"><i class="ri-github-fill"></i> GitHub</a>
+              </div>
+            </div>
+            <div class="project-body">
+              <div class="project-tags">
+                <span>HTML</span><span>CSS</span><span>JavaScript</span><span>PHP</span>
+              </div>
+              <h4 class="project-title">E-Commerce Website (Multi-Page)</h4>
+              <p class="project-desc">A fully functional multi-page e-commerce site with product listings, shopping cart, and PHP-powered backend. Designed for a seamless online shopping experience.</p>
+            </div>
+          </article>
+
+          <!-- Project 3: Personal Portfolio -->
+          <article class="project-card glass reveal delay-2">
+            <div class="project-img">
+              <div class="project-img-placeholder" style="--clr1:#a78bfa;--clr2:#7c3aed">
+                <i class="ri-user-3-line"></i>
+              </div>
+              <div class="project-overlay">
+                <a href="#" class="btn btn-sm btn-primary"><i class="ri-external-link-line"></i> Live Demo</a>
+                <a href="https://github.com/ammarmohammed1881-create/" target="_blank" class="btn btn-sm btn-outline"><i class="ri-github-fill"></i> GitHub</a>
+              </div>
+            </div>
+            <div class="project-body">
+              <div class="project-tags">
+                <span>HTML</span><span>CSS</span><span>JavaScript</span>
+              </div>
+              <h4 class="project-title">Personal Portfolio</h4>
+              <p class="project-desc">This very portfolio — a responsive, animated personal website showcasing projects, skills, and contact information with a modern dark-mode aesthetic and smooth interactions.</p>
+            </div>
+          </article>
+
+        </div>
       </div>
+    </section>
 
-      <div class="projects-grid">
-
-        <!-- Project 1: Delivery Management System -->
-        <article class="project-card glass reveal">
-          <div class="project-img">
-            <div class="project-img-placeholder" style="--clr1:#4ade80;--clr2:#22c55e">
-              <i class="ri-truck-line"></i>
-            </div>
-            <div class="project-overlay">
-              <a href="#" class="btn btn-sm btn-primary"><i class="ri-external-link-line"></i> Live Demo</a>
-              <a href="https://github.com/ammarmohammed1881-create/" target="_blank" class="btn btn-sm btn-outline"><i
-                  class="ri-github-fill"></i> GitHub</a>
-            </div>
-          </div>
-          <div class="project-body">
-            <div class="project-tags">
-              <span>C#</span><span>MySQL</span><span>OOP</span>
-            </div>
-            <h4 class="project-title">Delivery Management System</h4>
-            <p class="project-desc">A desktop application built with C# and MySQL to manage deliveries end-to-end —
-              tracking orders, drivers, and status updates with a clean, data-driven interface.</p>
-          </div>
-        </article>
-
-        <!-- Project 2: E-Commerce Website -->
-        <article class="project-card glass reveal delay-1">
-          <div class="project-img">
-            <div class="project-img-placeholder" style="--clr1:#60a5fa;--clr2:#3b82f6">
-              <i class="ri-shopping-bag-3-line"></i>
-            </div>
-            <div class="project-overlay">
-              <a href="#" class="btn btn-sm btn-primary"><i class="ri-external-link-line"></i> Live Demo</a>
-              <a href="https://github.com/ammarmohammed1881-create/" target="_blank" class="btn btn-sm btn-outline"><i
-                  class="ri-github-fill"></i> GitHub</a>
-            </div>
-          </div>
-          <div class="project-body">
-            <div class="project-tags">
-              <span>HTML</span><span>CSS</span><span>JavaScript</span><span>PHP</span>
-            </div>
-            <h4 class="project-title">E-Commerce Website (Multi-Page)</h4>
-            <p class="project-desc">A fully functional multi-page e-commerce site with product listings, shopping cart,
-              and PHP-powered backend. Designed for a seamless online shopping experience.</p>
-          </div>
-        </article>
-
-        <!-- Project 3: Personal Portfolio -->
-        <article class="project-card glass reveal delay-2">
-          <div class="project-img">
-            <div class="project-img-placeholder" style="--clr1:#a78bfa;--clr2:#7c3aed">
-              <i class="ri-user-3-line"></i>
-            </div>
-            <div class="project-overlay">
-              <a href="#" class="btn btn-sm btn-primary"><i class="ri-external-link-line"></i> Live Demo</a>
-              <a href="https://github.com/ammarmohammed1881-create/" target="_blank" class="btn btn-sm btn-outline"><i
-                  class="ri-github-fill"></i> GitHub</a>
-            </div>
-          </div>
-          <div class="project-body">
-            <div class="project-tags">
-              <span>HTML</span><span>CSS</span><span>JavaScript</span>
-            </div>
-            <h4 class="project-title">Personal Portfolio</h4>
-            <p class="project-desc">This very portfolio — a responsive, animated personal website showcasing projects,
-              skills, and contact information with a modern dark-mode aesthetic and smooth interactions.</p>
-          </div>
-        </article>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══════════════════════════════════════
+    <!-- ═══════════════════════════════════════
         CONTACT SECTION
     ═══════════════════════════════════════ -->
-  <section class="contact section" id="contact">
-    <div class="container">
-      <div class="section-header reveal">
-        <span class="section-tag">Get In Touch</span>
-        <h2 class="section-title">Contact <span class="accent">Me</span></h2>
-        <div class="section-line"></div>
-      </div>
+    <section class="contact section" id="contact">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-tag">Get In Touch</span>
+          <h2 class="section-title">Contact <span class="accent">Me</span></h2>
+          <div class="section-line"></div>
+        </div>
 
-      <div class="contact-grid">
+        <div class="contact-grid">
 
-        <!-- Info -->
-        <div class="contact-info reveal">
-          <h3>Let's work together</h3>
-          <p>Have a project in mind or want to collaborate? I'd love to hear from you. Drop me a message and I'll get
-            back to you within 24 hours.</p>
+          <!-- Info -->
+          <div class="contact-info reveal">
+            <h3>Let's work together</h3>
+            <p>Have a project in mind or want to collaborate? I'd love to hear from you. Drop me a message and I'll get
+              back to you within 24 hours.</p>
 
-          <div class="contact-items">
-            <div class="contact-item glass">
-              <div class="contact-icon"><i class="ri-mail-send-line"></i></div>
-              <div>
-                <span class="contact-label">Email</span>
-                <span class="contact-value">ammarmohammed1881@gmail.com</span>
+            <div class="contact-items">
+              <div class="contact-item glass">
+                <div class="contact-icon"><i class="ri-mail-send-line"></i></div>
+                <div>
+                  <span class="contact-label">Email</span>
+                  <span class="contact-value">ammarmohammed1881@gmail.com</span>
+                </div>
+              </div>
+              <div class="contact-item glass">
+                <div class="contact-icon"><i class="ri-phone-line"></i></div>
+                <div>
+                  <span class="contact-label">Phone</span>
+                  <span class="contact-value">+94 77 446 4661</span>
+                </div>
+              </div>
+              <div class="contact-item glass">
+                <div class="contact-icon"><i class="ri-map-pin-2-line"></i></div>
+                <div>
+                  <span class="contact-label">Location</span>
+                  <span class="contact-value">728/1, Atulugama, Bandaragama, Sri Lanka</span>
+                </div>
               </div>
             </div>
-            <div class="contact-item glass">
-              <div class="contact-icon"><i class="ri-phone-line"></i></div>
-              <div>
-                <span class="contact-label">Phone</span>
-                <span class="contact-value">+94 77 446 4661</span>
-              </div>
-            </div>
-            <div class="contact-item glass">
-              <div class="contact-icon"><i class="ri-map-pin-2-line"></i></div>
-              <div>
-                <span class="contact-label">Location</span>
-                <span class="contact-value">728/1, Atulugama, Bandaragama, Sri Lanka</span>
-              </div>
+
+            <div class="contact-socials">
+              <a href="https://github.com/ammarmohammed1881-create/" target="_blank" class="social-btn" aria-label="GitHub"><i class="ri-github-fill"></i></a>
+              <a href="https://www.linkedin.com/in/mohamed-ammar-284922409" target="_blank" class="social-btn" aria-label="LinkedIn"><i class="ri-linkedin-fill"></i></a>
+              <a href="#" class="social-btn" aria-label="Twitter"><i class="ri-twitter-x-fill"></i></a>
+              <a href="#" class="social-btn" aria-label="Instagram"><i class="ri-instagram-line"></i></a>
             </div>
           </div>
 
-          <div class="contact-socials">
-            <a href="https://github.com/ammarmohammed1881-create/" target="_blank" class="social-btn"
-              aria-label="GitHub"><i class="ri-github-fill"></i></a>
-            <a href="https://www.linkedin.com/in/mohamed-ammar-284922409" target="_blank" class="social-btn"
-              aria-label="LinkedIn"><i class="ri-linkedin-fill"></i></a>
-            <a href="#" class="social-btn" aria-label="Twitter"><i class="ri-twitter-x-fill"></i></a>
-            <a href="#" class="social-btn" aria-label="Instagram"><i class="ri-instagram-line"></i></a>
+          <!-- Form -->
+          <div class="contact-form-wrap reveal delay-2">
+            <form class="contact-form glass" id="contactForm" novalidate>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="fname">Full Name</label>
+                  <div class="input-wrap">
+                    <i class="ri-user-line"></i>
+                    <input type="text" id="fname" name="fname" placeholder="John Doe" />
+                  </div>
+                  <span class="form-error" id="fnameError"></span>
+                </div>
+                <div class="form-group">
+                  <label for="femail">Email</label>
+                  <div class="input-wrap">
+                    <i class="ri-mail-line"></i>
+                    <input type="email" id="femail" name="femail" placeholder="john@email.com" />
+                  </div>
+                  <span class="form-error" id="femailError"></span>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="fsubject">Subject</label>
+                <div class="input-wrap">
+                  <i class="ri-file-text-line"></i>
+                  <input type="text" id="fsubject" name="fsubject" placeholder="Project Inquiry" />
+                </div>
+                <span class="form-error" id="fsubjectError"></span>
+              </div>
+              <div class="form-group">
+                <label for="fmessage">Message</label>
+                <div class="input-wrap textarea-wrap">
+                  <i class="ri-message-3-line"></i>
+                  <textarea id="fmessage" name="fmessage" rows="5" placeholder="Tell me about your project..."></textarea>
+                </div>
+                <span class="form-error" id="fmessageError"></span>
+              </div>
+              <button type="submit" class="btn btn-primary btn-full">
+                <i class="ri-send-plane-fill"></i> Send Message
+              </button>
+              <div class="form-success" id="formSuccess" style="display:none">
+                <i class="ri-checkbox-circle-fill"></i> Message sent successfully! I'll get back to you soon.
+              </div>
+              <div class="form-error-send" id="formSendError" style="display:none">
+                <i class="ri-error-warning-fill"></i> Oops! Something went wrong. Please try again or email me directly.
+              </div>
+            </form>
           </div>
-        </div>
 
-        <!-- Form -->
-        <div class="contact-form-wrap reveal delay-2">
-          <form class="contact-form glass" id="contactForm" novalidate>
-            <div class="form-row">
-              <div class="form-group">
-                <label for="fname">Full Name</label>
-                <div class="input-wrap">
-                  <i class="ri-user-line"></i>
-                  <input type="text" id="fname" name="fname" placeholder="John Doe" />
-                </div>
-                <span class="form-error" id="fnameError"></span>
-              </div>
-              <div class="form-group">
-                <label for="femail">Email</label>
-                <div class="input-wrap">
-                  <i class="ri-mail-line"></i>
-                  <input type="email" id="femail" name="femail" placeholder="john@email.com" />
-                </div>
-                <span class="form-error" id="femailError"></span>
-              </div>
-            </div>
-            <div class="form-group">
-              <label for="fsubject">Subject</label>
-              <div class="input-wrap">
-                <i class="ri-file-text-line"></i>
-                <input type="text" id="fsubject" name="fsubject" placeholder="Project Inquiry" />
-              </div>
-              <span class="form-error" id="fsubjectError"></span>
-            </div>
-            <div class="form-group">
-              <label for="fmessage">Message</label>
-              <div class="input-wrap textarea-wrap">
-                <i class="ri-message-3-line"></i>
-                <textarea id="fmessage" name="fmessage" rows="5" placeholder="Tell me about your project..."></textarea>
-              </div>
-              <span class="form-error" id="fmessageError"></span>
-            </div>
-            <button type="submit" class="btn btn-primary btn-full">
-              <i class="ri-send-plane-fill"></i> Send Message
-            </button>
-            <div class="form-success" id="formSuccess" style="display:none">
-              <i class="ri-checkbox-circle-fill"></i> Message sent successfully! I'll get back to you soon.
-            </div>
-            <div class="form-error-send" id="formSendError" style="display:none">
-              <i class="ri-error-warning-fill"></i> Oops! Something went wrong. Please try again or email me directly.
-            </div>
-          </form>
         </div>
-
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ═══════════════════════════════════════
+    <!-- ═══════════════════════════════════════
         FOOTER
     ═══════════════════════════════════════ -->
-  <footer class="footer">
-    <div class="container">
-      <div class="footer-inner">
-        <a href="#home" class="footer-logo">
-          <img src="photos/logo.png" alt="Ammar" class="logo-img" />
-        </a>
-        <p class="footer-copy">
-          &copy; <span id="footerYear"></span> Ammar. Crafted with <i class="ri-heart-fill" style="color:#4ade80"></i>
-          in Bandaragama.
-        </p>
-        <div class="footer-socials">
-          <a href="https://github.com/ammarmohammed1881-create/" target="_blank" aria-label="GitHub"><i
-              class="ri-github-fill"></i></a>
-          <a href="https://www.linkedin.com/in/mohamed-ammar-284922409" target="_blank" aria-label="LinkedIn"><i
-              class="ri-linkedin-fill"></i></a>
-          <a href="#" aria-label="Twitter"><i class="ri-twitter-x-fill"></i></a>
-          <a href="#" aria-label="Instagram"><i class="ri-instagram-line"></i></a>
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-inner">
+          <a href="#home" class="footer-logo">
+            <img src="photos/logo.png" alt="Ammar" class="logo-img" />
+          </a>
+          <p class="footer-copy">
+            &copy; <span id="footerYear"></span> Ammar. Crafted with <i class="ri-heart-fill" style="color:#4ade80"></i>
+            in Bandaragama.
+          </p>
+          <div class="footer-socials">
+            <a href="https://github.com/ammarmohammed1881-create/" target="_blank" aria-label="GitHub"><i class="ri-github-fill"></i></a>
+            <a href="https://www.linkedin.com/in/mohamed-ammar-284922409" target="_blank" aria-label="LinkedIn"><i class="ri-linkedin-fill"></i></a>
+            <a href="#" aria-label="Twitter"><i class="ri-twitter-x-fill"></i></a>
+            <a href="#" aria-label="Instagram"><i class="ri-instagram-line"></i></a>
+          </div>
         </div>
       </div>
-    </div>
-    <!-- Back to top -->
-    <button class="back-to-top" id="backToTop" aria-label="Back to top">
-      <i class="ri-arrow-up-line"></i>
-    </button>
-  </footer>
+      <!-- Back to top -->
+      <button class="back-to-top" id="backToTop" aria-label="Back to top">
+        <i class="ri-arrow-up-line"></i>
+      </button>
+    </footer>
 
-  <!-- EmailJS SDK -->
-  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-  <script src="script.js"></script>
-</body>
+    <!-- EmailJS SDK -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script src="script.js"></script>
+  </body>
 
 </html>
