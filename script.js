@@ -4,47 +4,47 @@
    1. CUSTOM CURSOR
 ══════════════════════════════ */
 (function initCursor() {
-  const dot = document.getElementById('cursorDot');
+  const dot     = document.getElementById('cursorDot');
   const outline = document.getElementById('cursorOutline');
   if (!dot || !outline) return;
 
   let mouseX = 0, mouseY = 0;
-  let outX = 0, outY = 0;
+  let outX   = 0, outY   = 0;
 
   document.addEventListener('mousemove', (e) => {
     mouseX = e.clientX;
     mouseY = e.clientY;
     dot.style.left = mouseX + 'px';
-    dot.style.top = mouseY + 'px';
+    dot.style.top  = mouseY + 'px';
   });
 
-  // Smooth outline lag
   function animateCursor() {
     outX += (mouseX - outX) * 0.12;
     outY += (mouseY - outY) * 0.12;
     outline.style.left = outX + 'px';
-    outline.style.top = outY + 'px';
+    outline.style.top  = outY + 'px';
     requestAnimationFrame(animateCursor);
   }
   animateCursor();
 
-  // Hover effect on interactive elements
   document.querySelectorAll('a, button, .skill-card, .project-card').forEach(el => {
     el.addEventListener('mouseenter', () => {
-      outline.style.width = '60px';
-      outline.style.height = '60px';
+      outline.style.width   = '60px';
+      outline.style.height  = '60px';
       outline.style.opacity = '0.3';
     });
     el.addEventListener('mouseleave', () => {
-      outline.style.width = '36px';
-      outline.style.height = '36px';
+      outline.style.width   = '36px';
+      outline.style.height  = '36px';
       outline.style.opacity = '0.5';
     });
   });
 })();
 
 /* ══════════════════════════════
-   2. NAVBAR: SCROLL + ACTIVE LINK
+   2. NAVBAR: SCROLL + ACTIVE LINK + MOBILE MENU
+   FIX: properly lock/unlock body scroll and
+        ensure backdrop covers all sections
 ══════════════════════════════ */
 (function initNavbar() {
   const navbar    = document.getElementById('navbar');
@@ -55,13 +55,13 @@
   const navClose  = document.getElementById('navClose');
   const backdrop  = document.getElementById('navBackdrop');
 
-  // Sticky glass on scroll
+  /* ── Sticky glass on scroll ── */
   window.addEventListener('scroll', () => {
     navbar.classList.toggle('scrolled', window.scrollY > 60);
     updateActiveLink();
   }, { passive: true });
 
-  // Highlight active nav link based on scroll position
+  /* ── Highlight active nav link ── */
   function updateActiveLink() {
     let current = '';
     sections.forEach(section => {
@@ -70,16 +70,19 @@
     });
     navLinks.forEach(link => {
       link.classList.remove('active');
-      const href = link.getAttribute('href');
-      if (href === '#' + current) link.classList.add('active');
+      if (link.getAttribute('href') === '#' + current) {
+        link.classList.add('active');
+      }
     });
   }
 
+  /* ── Open / Close helpers ── */
   function openMenu() {
     navMenu.classList.add('open');
     hamburger.classList.add('open');
     hamburger.setAttribute('aria-expanded', 'true');
     if (backdrop) backdrop.classList.add('open');
+    /* FIX: lock body scroll when menu is open */
     document.body.style.overflow = 'hidden';
   }
 
@@ -88,16 +91,17 @@
     hamburger.classList.remove('open');
     hamburger.setAttribute('aria-expanded', 'false');
     if (backdrop) backdrop.classList.remove('open');
+    /* FIX: restore body scroll */
     document.body.style.overflow = '';
   }
 
-  // Hamburger open
+  /* ── Hamburger toggle ── */
   hamburger.addEventListener('click', (e) => {
     e.stopPropagation();
     navMenu.classList.contains('open') ? closeMenu() : openMenu();
   });
 
-  // Close (×) button inside panel
+  /* ── Close (×) button inside panel ── */
   if (navClose) {
     navClose.addEventListener('click', (e) => {
       e.stopPropagation();
@@ -105,17 +109,17 @@
     });
   }
 
-  // Close when clicking backdrop
+  /* ── Close when clicking backdrop ── */
   if (backdrop) {
     backdrop.addEventListener('click', closeMenu);
   }
 
-  // Close on nav link click (mobile)
+  /* ── Close on nav link click (mobile) ── */
   navLinks.forEach(link => {
     link.addEventListener('click', closeMenu);
   });
 
-  // Close on Escape key
+  /* ── Close on Escape key ── */
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') closeMenu();
   });
@@ -125,18 +129,17 @@
    3. THEME TOGGLE (Dark / Light)
 ══════════════════════════════ */
 (function initTheme() {
-  const btn = document.getElementById('themeToggle');
+  const btn  = document.getElementById('themeToggle');
   const icon = document.getElementById('themeIcon');
   const html = document.documentElement;
 
-  // Persist preference
   const saved = localStorage.getItem('ammar-theme') || 'dark';
   html.setAttribute('data-theme', saved);
   applyIcon(saved);
 
   btn.addEventListener('click', () => {
     const current = html.getAttribute('data-theme');
-    const next = current === 'dark' ? 'light' : 'dark';
+    const next    = current === 'dark' ? 'light' : 'dark';
     html.setAttribute('data-theme', next);
     localStorage.setItem('ammar-theme', next);
     applyIcon(next);
@@ -161,13 +164,14 @@
     'Problem Solver',
     'UI / UX Enthusiast',
   ];
-  let wordIdx = 0;
-  let charIdx = 0;
-  let deleting = false;
-  const TYPE_SPEED = 80;
+
+  let wordIdx    = 0;
+  let charIdx    = 0;
+  let deleting   = false;
+  const TYPE_SPEED   = 80;
   const DELETE_SPEED = 40;
-  const PAUSE_END = 2000;
-  const PAUSE_START = 400;
+  const PAUSE_END    = 2000;
+  const PAUSE_START  = 400;
 
   function type() {
     const current = words[wordIdx];
@@ -185,7 +189,7 @@
       charIdx--;
       if (charIdx === 0) {
         deleting = false;
-        wordIdx = (wordIdx + 1) % words.length;
+        wordIdx  = (wordIdx + 1) % words.length;
         setTimeout(type, PAUSE_START);
         return;
       }
@@ -194,7 +198,6 @@
     setTimeout(type, deleting ? DELETE_SPEED : TYPE_SPEED);
   }
 
-  // Slight delay before starting so page loads first
   setTimeout(type, 600);
 })();
 
@@ -209,15 +212,15 @@
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add('visible');
-        // Trigger skill bars if inside a skill card
-        const fills = entry.target.querySelectorAll('.skill-fill');
-        fills.forEach(fill => {
+
+        /* Trigger skill bars */
+        entry.target.querySelectorAll('.skill-fill').forEach(fill => {
           const w = fill.getAttribute('data-width');
           if (w) fill.style.width = w + '%';
         });
-        // Trigger counters if inside about section
-        const counters = entry.target.querySelectorAll('.counter-number');
-        counters.forEach(animateCounter);
+
+        /* Trigger counters */
+        entry.target.querySelectorAll('.counter-number').forEach(animateCounter);
       }
     });
   }, { threshold: 0.15 });
@@ -232,15 +235,14 @@ function animateCounter(el) {
   if (el.dataset.animated) return;
   el.dataset.animated = 'true';
 
-  const target = parseInt(el.getAttribute('data-target'), 10);
+  const target   = parseInt(el.getAttribute('data-target'), 10);
   const duration = 1800;
-  const start = performance.now();
+  const start    = performance.now();
 
   function update(now) {
-    const elapsed = now - start;
+    const elapsed  = now - start;
     const progress = Math.min(elapsed / duration, 1);
-    // Ease-out cubic
-    const ease = 1 - Math.pow(1 - progress, 3);
+    const ease     = 1 - Math.pow(1 - progress, 3);
     el.textContent = Math.floor(ease * target);
     if (progress < 1) requestAnimationFrame(update);
     else el.textContent = target;
@@ -249,7 +251,6 @@ function animateCounter(el) {
   requestAnimationFrame(update);
 }
 
-// Also run counters when About section comes into view
 (function watchCounters() {
   const about = document.querySelector('.about');
   if (!about) return;
@@ -264,7 +265,7 @@ function animateCounter(el) {
 })();
 
 /* ══════════════════════════════
-   7. SKILL BARS (triggered by scroll reveal)
+   7. SKILL BARS
 ══════════════════════════════ */
 (function initSkillBars() {
   const skillSection = document.querySelector('.skills');
@@ -304,13 +305,11 @@ function animateCounter(el) {
 ══════════════════════════════ */
 (function initContactForm() {
 
-  /* ── EmailJS credentials ── */
-  const SERVICE_ID         = 'service_c5mtq3o';   // ← Gmail service
-  const TEMPLATE_TO_ME     = 'template_4d5yqwv';  // notification → ammarmhmd1881@gmail.com
-  const TEMPLATE_AUTOREPLY = 'template_is2imlq';  // auto-reply  → sender's gmail
+  const SERVICE_ID         = 'service_c5mtq3o';
+  const TEMPLATE_TO_ME     = 'template_4d5yqwv';
+  const TEMPLATE_AUTOREPLY = 'template_is2imlq';
   const PUBLIC_KEY         = 'vK7UODoQOeFbSVoNC';
 
-  /* Initialise EmailJS */
   if (typeof emailjs !== 'undefined') {
     emailjs.init(PUBLIC_KEY);
   } else {
@@ -327,22 +326,25 @@ function animateCounter(el) {
     fsubject: { el: document.getElementById('fsubject'), err: document.getElementById('fsubjectError') },
     fmessage: { el: document.getElementById('fmessage'), err: document.getElementById('fmessageError') },
   };
-  const successDiv  = document.getElementById('formSuccess');
-  const errorDiv    = document.getElementById('formSendError');
-  const submitBtn   = form.querySelector('button[type="submit"]');
 
-  /* ── Helpers ── */
+  const successDiv = document.getElementById('formSuccess');
+  const errorDiv   = document.getElementById('formSendError');
+  const submitBtn  = form.querySelector('button[type="submit"]');
+
   function validateEmail(v) {
     return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
   }
+
   function showError(field, msg) {
     field.err.textContent = msg;
     field.el.style.borderColor = '#f87171';
   }
+
   function clearError(field) {
-    field.err.textContent = '';
+    field.err.textContent  = '';
     field.el.style.borderColor = '';
   }
+
   function validateField(f) {
     const val = f.el.value.trim();
     if (!val) { showError(f, 'This field is required.'); return false; }
@@ -353,13 +355,11 @@ function animateCounter(el) {
     return true;
   }
 
-  /* ── Live validation ── */
   Object.values(fields).forEach(f => {
     f.el.addEventListener('input', () => clearError(f));
     f.el.addEventListener('blur',  () => validateField(f));
   });
 
-  /* ── Timestamp ── */
   function getTimestamp() {
     return new Date().toLocaleString('en-GB', {
       weekday: 'short', year: 'numeric', month: 'short',
@@ -367,38 +367,37 @@ function animateCounter(el) {
     });
   }
 
-  /* ── UI state helpers ── */
   function setLoading() {
     submitBtn.disabled = true;
     submitBtn.innerHTML = '<i class="ri-loader-4-line" style="display:inline-block;animation:spin 1s linear infinite"></i> Sending…';
   }
+
   function resetBtn() {
-    submitBtn.disabled = false;
+    submitBtn.disabled  = false;
     submitBtn.innerHTML = '<i class="ri-send-plane-fill"></i> Send Message';
   }
+
   function showSuccess() {
     successDiv.style.display = 'flex';
     errorDiv.style.display   = 'none';
     setTimeout(() => (successDiv.style.display = 'none'), 7000);
   }
+
   function showSendError() {
     errorDiv.style.display   = 'flex';
     successDiv.style.display = 'none';
     setTimeout(() => (errorDiv.style.display = 'none'), 7000);
   }
 
-  /* ── Submit ── */
   form.addEventListener('submit', (e) => {
     e.preventDefault();
 
-    /* Validate */
     let valid = true;
     Object.values(fields).forEach(f => { if (!validateField(f)) valid = false; });
     if (!valid) return;
 
     setLoading();
 
-    /* Shared params — variable names must match BOTH EmailJS templates */
     const params = {
       name:    fields.fname.el.value.trim(),
       email:   fields.femail.el.value.trim(),
@@ -407,23 +406,17 @@ function animateCounter(el) {
       time:    getTimestamp(),
     };
 
-    /* Send BOTH emails in parallel */
     Promise.all([
-      /* 1️⃣  Notification email → your Gmail */
-      emailjs.send(SERVICE_ID, TEMPLATE_TO_ME, params),
-
-      /* 2️⃣  Auto-reply email → sender's Gmail */
+      emailjs.send(SERVICE_ID, TEMPLATE_TO_ME,     params),
       emailjs.send(SERVICE_ID, TEMPLATE_AUTOREPLY, params),
     ])
     .then(() => {
-      /* ✅ Both sent */
       resetBtn();
       showSuccess();
       form.reset();
       Object.values(fields).forEach(f => clearError(f));
     })
     .catch((err) => {
-      /* ❌ At least one failed */
       console.error('EmailJS error:', err);
       resetBtn();
       showSendError();
@@ -441,7 +434,7 @@ function animateCounter(el) {
 })();
 
 /* ══════════════════════════════
-   11. SMOOTH SCROLL for <a href="#...">
+   11. SMOOTH SCROLL
 ══════════════════════════════ */
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   anchor.addEventListener('click', function (e) {
@@ -458,23 +451,23 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 ══════════════════════════════ */
 document.querySelectorAll('.btn').forEach(btn => {
   btn.addEventListener('click', function (e) {
-    const rect = this.getBoundingClientRect();
+    const rect   = this.getBoundingClientRect();
     const ripple = document.createElement('span');
-    const size = Math.max(rect.width, rect.height);
-    const x = e.clientX - rect.left - size / 2;
-    const y = e.clientY - rect.top - size / 2;
+    const size   = Math.max(rect.width, rect.height);
+    const x      = e.clientX - rect.left - size / 2;
+    const y      = e.clientY - rect.top  - size / 2;
 
     Object.assign(ripple.style, {
-      position: 'absolute',
-      width: size + 'px',
-      height: size + 'px',
-      left: x + 'px',
-      top: y + 'px',
+      position:     'absolute',
+      width:        size + 'px',
+      height:       size + 'px',
+      left:         x + 'px',
+      top:          y + 'px',
       borderRadius: '50%',
-      background: 'rgba(255,255,255,0.25)',
-      transform: 'scale(0)',
-      animation: 'ripple 0.6s linear',
-      pointerEvents: 'none',
+      background:   'rgba(255,255,255,0.25)',
+      transform:    'scale(0)',
+      animation:    'ripple 0.6s linear',
+      pointerEvents:'none',
     });
 
     this.appendChild(ripple);
@@ -482,21 +475,16 @@ document.querySelectorAll('.btn').forEach(btn => {
   });
 });
 
-// Inject ripple keyframe once
 (function injectRippleStyle() {
   if (document.getElementById('rippleStyle')) return;
-  const style = document.createElement('style');
-  style.id = 'rippleStyle';
-  style.textContent = `
-    @keyframes ripple {
-      to { transform: scale(3); opacity: 0; }
-    }
-  `;
+  const style     = document.createElement('style');
+  style.id        = 'rippleStyle';
+  style.textContent = `@keyframes ripple { to { transform: scale(3); opacity: 0; } }`;
   document.head.appendChild(style);
 })();
 
 /* ══════════════════════════════
-   13. HERO BACKGROUND PARALLAX (subtle)
+   13. HERO PARALLAX (subtle)
 ══════════════════════════════ */
 (function initParallax() {
   const glow1 = document.querySelector('.glow-1');
@@ -504,7 +492,7 @@ document.querySelectorAll('.btn').forEach(btn => {
   if (!glow1 || !glow2) return;
 
   window.addEventListener('mousemove', (e) => {
-    const x = (e.clientX / window.innerWidth - 0.5) * 20;
+    const x = (e.clientX / window.innerWidth  - 0.5) * 20;
     const y = (e.clientY / window.innerHeight - 0.5) * 20;
     glow1.style.transform = `translate(${x}px, ${y}px)`;
     glow2.style.transform = `translate(${-x}px, ${-y}px)`;
@@ -512,7 +500,7 @@ document.querySelectorAll('.btn').forEach(btn => {
 })();
 
 /* ══════════════════════════════
-   15. ACTIVE NAV ON PAGE LOAD
+   14. ACTIVE NAV ON PAGE LOAD
 ══════════════════════════════ */
 window.addEventListener('DOMContentLoaded', () => {
   const homeLink = document.querySelector('.nav-link[href="#home"]');
@@ -520,16 +508,15 @@ window.addEventListener('DOMContentLoaded', () => {
 });
 
 /* ══════════════════════════════
-   16. SKILL CATEGORY TABS
+   15. SKILL CATEGORY TABS
 ══════════════════════════════ */
 (function initSkillTabs() {
-  const tabs = document.querySelectorAll('.skill-tab');
+  const tabs  = document.querySelectorAll('.skill-tab');
   const cards = document.querySelectorAll('.skill-card[data-cat]');
   if (!tabs.length) return;
 
   tabs.forEach(tab => {
     tab.addEventListener('click', () => {
-      // Update active tab
       tabs.forEach(t => t.classList.remove('active'));
       tab.classList.add('active');
 
@@ -539,7 +526,6 @@ window.addEventListener('DOMContentLoaded', () => {
         const cat = card.getAttribute('data-cat');
         if (selected === 'all' || cat === selected) {
           card.classList.remove('hidden');
-          // Re-animate skill bar when revealed
           const fill = card.querySelector('.skill-fill');
           if (fill) {
             fill.style.width = '0%';
