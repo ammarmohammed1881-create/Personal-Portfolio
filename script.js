@@ -541,3 +541,56 @@ window.addEventListener('DOMContentLoaded', () => {
     });
   });
 })();
+
+/* ══════════════════════════════
+   16. ABOUT IMAGE — 3D TILT + GLARE
+══════════════════════════════ */
+(function initAboutTilt() {
+  const card = document.getElementById('aboutTiltCard');
+  if (!card) return;
+
+  const MAX_TILT = 9; // degrees
+  let ticking = false;
+  let lastEvent = null;
+
+  function applyTilt() {
+    ticking = false;
+    if (!lastEvent) return;
+
+    const rect = card.getBoundingClientRect();
+    const px = (lastEvent.clientX - rect.left) / rect.width;
+    const py = (lastEvent.clientY - rect.top) / rect.height;
+
+    const rotateY = (px - 0.5) * MAX_TILT * 2;
+    const rotateX = (0.5 - py) * MAX_TILT * 2;
+
+    card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+    card.style.setProperty('--mx', `${px * 100}%`);
+    card.style.setProperty('--my', `${py * 100}%`);
+  }
+
+  function handleMove(e) {
+    lastEvent = e;
+    if (!ticking) {
+      ticking = true;
+      requestAnimationFrame(applyTilt);
+    }
+  }
+
+  function reset() {
+    card.style.transform = 'rotateX(0deg) rotateY(0deg)';
+    card.style.setProperty('--mx', '50%');
+    card.style.setProperty('--my', '50%');
+  }
+
+  card.addEventListener('mousemove', handleMove);
+  card.addEventListener('mouseleave', reset);
+
+  // Touch devices: a light tap pulses the glare instead of tilting.
+  card.addEventListener('touchstart', () => {
+    card.classList.add('tilt-touch');
+    card.style.setProperty('--mx', '50%');
+    card.style.setProperty('--my', '35%');
+    setTimeout(() => card.classList.remove('tilt-touch'), 700);
+  }, { passive: true });
+})();
